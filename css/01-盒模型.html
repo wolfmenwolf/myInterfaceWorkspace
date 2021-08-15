@@ -2,7 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>盒模型</title>
+    <!--
+    浏览器支持
+表格中的数字注明了完全支持该属性的首个浏览器版本。
+
+带 -webkit- 或 -moz- 的数字表示使用前缀的首个版本。
+
+属性	Chrome	IE	Firefox	Safari	Opera
+box-sizing	10.0
+4.0 -webkit-	8.0	29.0
+2.0 -moz-	5.1
+3.2 -webkit-	9.5
+定义和用法
+box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。
+
+例如，假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。
+
+默认值：	content-box
+继承性：	no
+版本：	CSS3
+JavaScript 语法：	object.style.boxSizing="border-box"
+语法
+box-sizing: content-box|border-box|inherit;
+值	描述
+content-box
+这是由 CSS2.1 规定的宽度高度行为。
+
+宽度和高度分别应用到元素的内容框。
+
+在宽度和高度之外绘制元素的内边距和边框。
+
+border-box
+为元素设定的宽度和高度决定了元素的边框盒。
+
+就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+
+通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+
+inherit	规定应从父元素继承 box-sizing 属性的值。
+
+    -->
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            box-sizing: border-box;
+
+        }
+    </style>
 </head>
 <body>
 

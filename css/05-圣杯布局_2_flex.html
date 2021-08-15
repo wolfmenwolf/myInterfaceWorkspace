@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局-flex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--
+    【2】flex弹性盒子
+    header和footer设置样式，横向撑满。
+    container中的left、center、right依次排布即可
+    给container设置弹性布局 display: flex;
+    left和right区域定宽，center设置 flex: 1; 即可
+    -->
+    <style>
+        body {
+            min-width: 550px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #header, #footer {
+            background: rgba(29, 27, 27, 0.726);
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        #container{
+            display: flex;
+        }
+
+        #container .column{
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+        }
+       /**
+       利用 flex: 1; 确实实现了三个不同内容的 div 平分空间, 所以按我以前的想法来说:
+       flex: 1; === flex: 1 1 auto;
+       这是完整写法, 详见mdn, 它还有另外两种完整写法, 分别是 initial (0 1 auto) 和 none (0 0 auto)
+       第一个参数表示: flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+       第二个参数表示: flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+       第三个参数表示: flex-basis给上面两个属性分配多余空间之前, 计算项目是否有多余空间, 默认值为 auto, 即项目本身的大小
+        */
+        /**
+        于是我就又做了几个实验, 改了一下 flex-basis 的参数, 得出以下结论
+
+        flex: 1; === flex: 1 1 任意数字+任意长度单位;
+        可以看出最重要的一点在 第三个参数 flex-basis 上, 我们再来回顾以下 这个属性的作用
+        flex-basis给上面两个属性分配多余空间之前, 计算项目是否有多余空间, 默认值为 auto, 即项目本身的大小
+        auto 为表示项目本身的大小, 如果设置为 auto, 那么这三个盒子就会按照自己内容的多少来等比例的放大和缩小, 所以出现了上图中三个盒子不一样大的情况
+        那我们如果随便设置一个其他带有长度单位的数字呢, 那么他就不会按项目本身来计算, 所以它不关心内容, 只是把空间等比收缩和放大
+        现在你知道 flex: 1; 为什么能平分元素了吧, CSS 是一门很难学的语言, 虽然我经过不断试验得出结果, 但是它还有好多莫名其妙的问题去等你发现. 比如 margin: auto 为什么会实现居中, overflow: hidden 为何能实现 BFC
+        你可以遵从官方标准, 也可以和我一样去实验性的看待 flex: 1;
+         */
+        #center{
+            flex: 1;
+            background: rgb(206, 201, 201);
+        }
+
+
+        #left {
+            width: 200px;
+            background: rgba(95, 179, 235, 0.972);
+        }
+        #right {
+            width: 150px;
+            background: rgb(231, 105, 2);
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="header">#header</div>
+<div id="container">
+    <div id="left" class="column">#left</div>
+    <div id="center" class="column">#center</div>
+    <div id="right" class="column">#right</div>
+</div>
+<div id="footer">#footer</div>
+
+</body>
+</html>
