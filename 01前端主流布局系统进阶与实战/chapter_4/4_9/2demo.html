@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        .box1{
-            width: 300px;
+        .main{
             height: 200px;
             background: skyblue;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .box1 div{
-            width: 100px;
+        .main div:nth-of-type(2){
+            display: flex;
+            margin-left: 10px;
+        }
+
+        .main .box1{
+            width: 50px;
             height: 100px;
             background: pink;
-            text-align: center;
-            line-height: 100px;
         }
     </style>
 </head>
 <body>
-<div class="box1">
-    <div>1</div>
 
+<div class="main">
+    <div class="box1">1</div>
+    <div>
+        <div class="box1">2</div>
+        <div class="box1">3</div>
+    </div>
 </div>
+
 </body>
 </html>
